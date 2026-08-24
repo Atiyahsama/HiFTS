@@ -1,4 +1,4 @@
-from .traits import TRAIT_DEFINITIONS
+from .traits import TRAIT_COLUMNS, TRAIT_DEFINITIONS
 
 SYSTEM_PROMPT = """你是一位拥有多年阅卷经验的小学语文老师。你的任务是阅读学生作文，并依据评分维度，生成分层清晰、客观简洁的作文评语与分数。
 
@@ -71,4 +71,6 @@ def system_prompt_with_prior(prior_score: float) -> str:
 
 
 def trait_table_text() -> str:
-    return "\n".join(f"{code}: {name}" for code, name in TRAIT_DEFINITIONS.items())
+    return "\n".join(
+        f"{code}: {TRAIT_DEFINITIONS[code]}" for code in TRAIT_COLUMNS if code in TRAIT_DEFINITIONS
+    )

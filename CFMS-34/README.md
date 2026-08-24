@@ -17,9 +17,9 @@ The official split is 8:1:1. The test set only contains essays whose two raters 
 ## Files
 
 - `train.csv`, `dev.csv`, `test.csv` — essay id `编号`, text `作文内容`, title `作文题目`, dual scores `总分_1/2` and `Bxx_1/2`.
-- `trait_map.csv` — the 20 core traits used by HiFTS, mapped from C/S/E codes to original B-codes.
+- `trait_map.csv` — all 34 traits mapped from C/S/E/Cv codes to original B-codes. Column `hifts_core` marks the 20 traits used by HiFTS.
 
-Each essay has two independent 0–5 ratings on all 34 original traits: Content, Structure, Expression, and Conventions. The CSVs keep all 34 B-columns so the full rubric remains available. HiFTS training and eval load `trait_map.csv` first, then read the matching B-columns.
+Each essay has two independent 0–5 ratings on all 34 traits: Content, Structure, Expression, and Conventions. The CSVs keep all 34 B-columns. HiFTS training and eval load `trait_map.csv`, then read only the core B-columns.
 
 The 20 core traits are those with the highest Pearson correlation to the holistic score on the training set: C02, C04–C06, S02–S03, S06–S12, E01–E02, E05–E07, E11–E12.
 

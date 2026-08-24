@@ -24,7 +24,7 @@ from hifts.rewards import (
     load_and_process_data,
     reward_lambdas_from_alpha,
 )
-from hifts.traits import load_trait_map
+from hifts.traits import TRAIT_COLUMNS, load_trait_map
 
 
 @dataclass
@@ -84,6 +84,7 @@ def main():
 
     mapping = load_trait_map()
     print(f"TRAIT_MAP={mapping}")
+    print(f"CORE_TRAITS={TRAIT_COLUMNS}")
 
     tokenizer = AutoTokenizer.from_pretrained(cfg.model_path, trust_remote_code=True)
     if tokenizer.pad_token is None:

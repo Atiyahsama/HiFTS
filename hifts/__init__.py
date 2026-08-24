@@ -3,11 +3,12 @@
 from .metrics import evaluate, qwk
 from .prompts import SYSTEM_PROMPT, system_prompt_with_prior
 from .rewards import CustomRewardFunction, group_normalize_rewards, load_and_process_data
-from .traits import TRAIT_COLUMNS, TRAIT_DEFINITIONS, load_trait_map
+from .traits import ALL_TRAIT_COLUMNS, TRAIT_COLUMNS, TRAIT_DEFINITIONS, load_trait_map
 
 __all__ = [
     "SYSTEM_PROMPT",
     "system_prompt_with_prior",
+    "ALL_TRAIT_COLUMNS",
     "TRAIT_COLUMNS",
     "TRAIT_DEFINITIONS",
     "load_trait_map",
