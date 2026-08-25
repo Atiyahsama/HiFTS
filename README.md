@@ -17,7 +17,7 @@ SFT uses [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory). Point `MODEL
 
 ## CFMS-34
 
-CFMS-34 contains 951 dual-rated Chinese primary-school essays with a 34-trait rubric. `CFMS-34/trait_map.csv` lists all 34 C/S/E/Cv codes. HiFTS trains on the 20 traits with the highest Pearson correlation to the holistic score on the training set. See [`CFMS-34/README.md`](CFMS-34/README.md) for splits and score scale.
+CFMS-34 contains 951 dual-rated Chinese primary-school essays with a 34-trait rubric. `CFMS-34/full` has all 34 labels; `CFMS-34/core` keeps the 20 traits marked `hifts_core=1`. See [`CFMS-34/README.md`](CFMS-34/README.md) for splits and score scale.
 
 ## HiFTS
 

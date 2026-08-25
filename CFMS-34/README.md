@@ -16,12 +16,22 @@ The official split is 8:1:1. The test set only contains essays whose two raters 
 
 ## Files
 
-- `train.csv`, `dev.csv`, `test.csv` — essay id `编号`, text `作文内容`, title `作文题目`, dual scores `总分_1/2` and `Bxx_1/2`.
-- `trait_map.csv` — all 34 traits mapped from C/S/E/Cv codes to original B-codes. Column `hifts_core` marks the 20 traits used by HiFTS.
+```
+CFMS-34/
+  trait_map.csv          all 34 traits: id, layer, core flag, definition
+  full/                  complete 34-trait labels
+    train.csv
+    dev.csv
+    test.csv
+  core/                  20 traits with hifts_core=1 (used by HiFTS)
+    train.csv
+    dev.csv
+    test.csv
+```
 
-Each essay has two independent 0–5 ratings on all 34 traits: Content, Structure, Expression, and Conventions. The CSVs keep all 34 B-columns. HiFTS training and eval load `trait_map.csv`, then read only the core B-columns.
+Each CSV has essay id `编号`, text `作文内容`, title `作文题目`, dual holistic scores `总分_1/2`, and dual trait scores `{id}_1/{id}_2`. Trait ids follow `trait_map.csv` (`C01`–`C06`, `S01`–`S12`, `E01`–`E12`, `Cv01`–`Cv04`).
 
-The 20 core traits are those with the highest Pearson correlation to the holistic score on the training set: C02, C04–C06, S02–S03, S06–S12, E01–E02, E05–E07, E11–E12.
+`full/` keeps all 34 traits. `core/` keeps only the 20 traits marked `hifts_core=1` in `trait_map.csv`. Those 20 are the traits with the highest Pearson correlation to the holistic score on the training set: C02, C04–C06, S02–S03, S06–S12, E01–E02, E05–E07, E11–E12.
 
 ## Score scale in HiFTS
 
