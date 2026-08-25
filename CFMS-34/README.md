@@ -27,10 +27,6 @@ The 20 core traits are those with the highest Pearson correlation to the holisti
 
 Annotators use 0–5. For modeling, the two ratings are summed to 0–10 for the 20 core traits and the holistic score. Do not average `_1` and `_2` if you are reproducing HiFTS. The `hifts` code does this automatically from the dual-rater columns.
 
-## Anonymization
-
-Person names are replaced with stable, gender-aware placeholders: the same real person maps to the same fake name, and different people stay distinct. Names are chosen from male/female pools using nearby pronouns and titles such as 他/她, 小女孩, 男生. Teacher and kin terms keep a hashed surname, e.g. 刘老师, 李阿姨. School names are generalized, e.g. 实验小学; campuses become 本校区, 东校区, 北校区. Literary names and book titles are left unchanged.
-
 ## Intended use
 
 Released files are for research use, not high-stakes decisions without human oversight. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Raw exam records and handwriting images are not released.
