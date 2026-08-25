@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score
 
-from .traits import CFMS_TRAIT_ID, TRAIT_COLUMNS, load_trait_map
+from .traits import TRAIT_COLUMNS, load_trait_map
 
 OVERALL_ALIASES = ("总分", "overall_score", "total_score", "score")
 
@@ -46,12 +46,7 @@ def mse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 
 
 def _candidate_trait_columns(trait: str, prefix: str) -> List[str]:
-    names = []
-    cfms_code = CFMS_TRAIT_ID.get(trait)
-    if cfms_code:
-        names.extend([f"{prefix}{cfms_code}", cfms_code])
-    names.extend([f"{prefix}{trait}", trait])
-    return names
+    return [f"{prefix}{trait}", trait]
 
 
 def _pick_existing(df: pd.DataFrame, names: Iterable[str]) -> Optional[str]:

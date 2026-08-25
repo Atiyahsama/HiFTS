@@ -15,7 +15,6 @@ from .traits import (
     ESSAY_COLUMN,
     TOTAL_COLUMN,
     TRAIT_COLUMNS,
-    cfms_id,
     load_trait_map,
 )
 
@@ -76,9 +75,7 @@ def load_and_process_data(df_or_path, tokenizer) -> Dataset:
         )
         traits = {}
         for trait in TRAIT_COLUMNS:
-            val = _paired_score(row, cfms_id(trait))
-            if val is None:
-                val = _paired_score(row, trait)
+            val = _paired_score(row, trait)
             if val is not None:
                 traits[trait] = float(val)
         review = str(_get_cell(row, COT_COLUMN, "reference_text", "reference") or "")
