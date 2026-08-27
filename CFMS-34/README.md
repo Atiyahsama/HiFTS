@@ -19,6 +19,7 @@ The official split is 8:1:1. The test set only contains essays whose two raters 
 ```
 CFMS-34/
   trait_map.csv          all 34 traits: id, layer, core flag, definition
+  feedback.csv           scoring comments for all 951 essays, keyed by 编号
   full/                  complete 34-trait labels
     train.csv
     dev.csv
