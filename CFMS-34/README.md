@@ -18,21 +18,25 @@ The official split is 8:1:1. The test set only contains essays whose two raters 
 
 ```
 CFMS-34/
-  trait_map.csv          all 34 traits: id, layer, core flag, definition
-  feedback.csv           scoring comments for all 951 essays, keyed by 编号
-  full/                  complete 34-trait labels
+  trait_map.csv          trait ids, layer, core flag, and definitions
+  feedback.csv           per-essay scoring feedback (intermediate data)
+  full/                  complete 34-trait dataset
     train.csv
     dev.csv
     test.csv
-  core/                  20 traits with hifts_core=1 (used by HiFTS)
+  core/                  selected 20-trait dataset
     train.csv
     dev.csv
     test.csv
 ```
 
-Each CSV has essay id `编号`, text `作文内容`, title `作文题目`, dual holistic scores `总分_1/2`, and dual trait scores `{id}_1/{id}_2`. Trait ids follow `trait_map.csv` (`C01`–`C06`, `S01`–`S12`, `E01`–`E12`, `Cv01`–`Cv04`).
+`trait_map.csv` is the rubric: each of the 34 traits has an id (`C01`–`C06`, `S01`–`S12`, `E01`–`E12`, `Cv01`–`Cv04`), a layer, a short definition, and an `hifts_core` flag.
 
-`full/` keeps all 34 traits. `core/` keeps only the 20 traits marked `hifts_core=1` in `trait_map.csv`. Those 20 are the traits with the highest Pearson correlation to the holistic score on the training set: C02, C04–C06, S02–S03, S06–S12, E01–E02, E05–E07, E11–E12.
+`feedback.csv` maps every essay `编号` to its scoring comment. This is intermediate data for HiFTS, not a human rater note.
+
+`full/` and `core/` hold the same train/dev/test essays. `full/` keeps all 34 trait scores; `core/` keeps the 20 traits with `hifts_core=1`. Those 20 have the highest Pearson correlation to the holistic score on the training set: C02, C04–C06, S02–S03, S06–S12, E01–E02, E05–E07, E11–E12.
+
+Each split file has essay id `编号`, text `作文内容`, title `作文题目`, dual holistic scores `总分_1/2`, and dual trait scores `{id}_1/{id}_2`.
 
 ## Score scale in HiFTS
 
